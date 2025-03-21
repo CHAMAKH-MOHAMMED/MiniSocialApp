@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue changée à français -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription BTS</title> <!-- Titre plus descriptif -->
+    <link rel="stylesheet" href="inscruption.css">
+</head>
+
+<body>
+    <nav>
+        <img src="TOF/logo.jpeg" alt="Logo BTS"> <!-- Cheval d'image plus standard -->
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#Filiere">Filière</a></li> <!-- Orthographe corrigée -->
+        </ul>
+        <a href="login.html" class="header_login">Login</a>
+    </nav>
+
+    <div class="container" id="inscription"> <!-- ID en minuscules -->
+        <form action="userAdd.php" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotDePasse()">
+            <h1>Inscription BTS</h1> <!-- Balise em retirée, style géré par CSS -->
+            
+            <ul class="form-grid"> <!-- Ajout d'une classe pour le grid -->
+                <!-- Champ Nom -->
+                <li>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+                </li>
+
+                <!-- Champ Prénom -->
+                <li>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+                </li>
+
+                <!-- Date de naissance -->
+                <li>
+                    <label for="ddn">Date de naissance :</label>
+                    <input type="date" id="ddn" name="ddn" required>
+                </li>
+
+                <!-- Sexe -->
+                <li>
+                    <fieldset>
+                        <legend>Sexe :</legend>
+                        <span class="sexe">
+                            <label>
+                                <input type="radio" name="sexe" value="M" required checked>
+                                Homme
+                            </label>
+                            <label>
+                                <input type="radio" name="sexe" value="F">
+                                Femme
+                            </label>
+                        </span>
+                    </fieldset>
+                </li>
+
+                <!-- Filière -->
+                <li>
+                    <label for="filiere">Filière :</label>
+                    <select id="filiere" name="filiere" required>
+                        <option value="dsi">Développement des Systèmes d'Information</option>
+                        <option value="SE">Systèmes Electroniques</option>
+                        <option value="CPI">Conception du Produit Industriel</option>
+                        <option value="PME">PME/PMI</option> <!-- Slash cohérent -->
+                    </select>
+                </li>
+
+                <!-- Fonction -->
+                <li>
+                    <label for="fonction">Fonction :</label>
+                    <select id="fonction" name="fonction" required>
+                        <option value="Professeur">Professeur</option>
+                        <option value="Etudiant">Étudiant</option> <!-- Accent ajouté -->
+                    </select>
+                </li>
+
+                <!-- Intérêts -->
+                <li class="full-width"> <!-- Classe pour les éléments pleine largeur -->
+                    <fieldset>
+                        <legend>Centres d'intérêt :</legend>
+                        <label>
+                            <input type="checkbox" name="interets[]" value="sport">
+                            Sport
+                        </label>
+                        <label>
+                            <input type="checkbox" name="interets[]" value="musique">
+                            Musique
+                        </label>
+                        <label>
+                            <input type="checkbox" name="interets[]" value="lecture">
+                            Lecture
+                        </label>
+                    </fieldset>
+                </li>
+
+                <!-- Email -->
+                <li>
+                    <label for="email">Adresse Email :</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
+                </li>
+
+                <!-- Adresse -->
+                <li>
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="Entrez votre adresse" required>
+                </li>
+
+                <!-- Mot de passe -->
+                <li>
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" placeholder="Créez un mot de passe" required>
+                </li>
+
+                <!-- Confirmation mot de passe -->
+                <li>
+                    <label for="confirmPassword">Confirmation :</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" 
+                           placeholder="Confirmez le mot de passe" required>
+                </li>
+
+                <!-- Photo de profil -->
+                <li class="full-width">
+                    <label for="photo">Photo de profil :</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </li>
+
+                <!-- Boutons -->
+                <li class="full-width button-group">
+                    <button type="submit" class="valider">S'inscrire</button>
+                    <button type="reset" class="valider reset">Réinitialiser</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <script>
+    function verifierMotDePasse() {
+        const password = document.getElementById('password').value;
+        const confirmation = document.getElementById('confirmPassword').value;
+        
+        if(password !== confirmation) {
+            alert("Erreur : Les mots de passe ne correspondent pas");
+            return false;
+        }
+        
+       
+        
+        return true;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+   
+</head>
+
+<body>
+    <nav>
+        <img src="TOF/logo.jpeg" alt="bts logo">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="#Filiere">Filiere</a></li>
+        </ul>
+        <a href="inscruption.html" class="header_login">inscruption</a>
+    </nav>
+
+    <div id="LOGIN">
+        <form class="LOGIN" action="Authetntification.php" method="POST" enctype="multipart/form-data">
+            <div class="container">
+                <div class="sous_containner">
+                    <div>
+                        <h1>LOGIN</h1>
+                    </div>
+                    <div><input class="input1" type="email" name="email" placeholder="email@gmail.com" required></div>
+                    <div><input class="input1" type="password" name="password" placeholder="password*******" required></div>
+                    <div><input class="button_login" type="submit" value="LOGIN"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
