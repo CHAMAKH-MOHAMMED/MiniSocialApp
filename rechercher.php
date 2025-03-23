@@ -212,7 +212,7 @@
                                 echo "<p class='name'>" . $user['nom'] . " " . $user['prenom'] . "</p>";
                                 echo "<p class='fonction'>Fonction: " . $user['fonction'] . "</p>";
                                 echo "<div class='buttons'>";
-                                echo "<a href='friendProfile.php?id=" . $user['id'] . "' class='btn btn-profile'><img src=\"TOF/profil.png\" title=\"Voir Profil\"></a>";
+                                echo "<a href='friendProfile.php?amieid=" . $user['id'] . "' class='btn btn-profile'><img src=\"TOF/profil.png\" title=\"Voir Profil\"></a>";
        
                                 echo "<a href='inviter.php?id=" . $user['id'] . "' class='btn btn-inviter'><img src=\"TOF/ajouter.png\"  title=\"Envoyer une Invitations\"></a>";
                                 echo "</div>";

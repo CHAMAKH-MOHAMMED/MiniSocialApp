@@ -133,6 +133,7 @@ $img = "userData/user_" . $idUser . "/" . $photo;
         padding: 10px;
        }
         .friend-list {
+        width: 250px;
             padding: 0;
        }
     
@@ -146,7 +147,7 @@ $img = "userData/user_" . $idUser . "/" . $photo;
 .friend-item {
      display: flex;          
     justify-content: space-between;
-   gap: 20px;
+ 
     align-items: center; 
     background: #ffffff;
     border-radius: 12px black;
@@ -208,18 +209,21 @@ $img = "userData/user_" . $idUser . "/" . $photo;
        
 /*  partie des massgecontainer */
 .messageBoxContenir{
-   
     position:fixed;
-    bottom: 0;
-    right: 250px;
-    padding:5%;
-    align-self: flex-end;
-   width: 100%;
-background-color:rgb(218, 31, 31);
+    bottom: 10px;
+    right: 320px;
+   
+
+    display:flex;
+   
+    flex-wrap: wrap;
+    
+    gap: 10px;
     margin: 0;
-    padding: 10px; }
+   }
    
 .message-container {
+    height: 350px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -228,26 +232,26 @@ background-color:rgb(218, 31, 31);
 }
 
 .message-header {
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     background-color: #007bff;
     color: white;
+    padding: 5px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    
 }
 
-.message-header div {
-    font-weight: bold;
-    font-size: 16px;
-}
+
 
 .message-header button {
+    height: 20px;
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -264,7 +268,6 @@ background-color:rgb(218, 31, 31);
 }
 
 .message-list div {
-
     margin-bottom: 10px;
     font-size: 14px;
     line-height: 1.5;
@@ -277,7 +280,8 @@ background-color:rgb(218, 31, 31);
 
 
 .message-container{
-    max-width: 300px;
+    height: 320px;
+width: 220px;
     border-radius: 12px;
 }
 
@@ -285,28 +289,14 @@ background-color:rgb(218, 31, 31);
 .message-container input[type="text"] {
     width: calc(100% - 40px);
     padding: 10px;
-    margin: 10px;
+    margin: 10px ;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 14px;
 }
 
-.message-container button {
-   
-    padding: 10px;
-    margin: 0 10px 10px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.message-container button:hover {
-    background-color: #0056b3;
-}
+
     /* //css de la partie message de conversation */
    
     .MesMessage {
@@ -410,7 +400,10 @@ background-color:rgb(218, 31, 31);
     const body = document.createElement("div");
     body.classList.add("message-container");
     body.id = msgBoxName;
-
+        let checkExist = document.getElementById(msgBoxName);
+        if (checkExist) {
+            return;
+        }
     // Création de l'en-tête
     const header = document.createElement("div");
     header.classList.add("message-header");

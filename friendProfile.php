@@ -10,12 +10,23 @@
     <?php
     session_start();
     include("connexion.php");
+   
     $amie=$_GET['amieid'];
     $sql = "SELECT * FROM utilisateur WHERE id=$amie";
     $result = mysqli_query($cn, $sql);
     $row = mysqli_fetch_array($result);
     $photo = $row["photo"];
-    $img = "userData/user_" . $amie . "/" . $photo;
+    $imgP = "userData/user_" . $amie . "/" . $photo;
+    //image de profil de utlisateur
+    
+    
+    $id = $_SESSION["id"];
+    $sqlP = "SELECT * FROM utilisateur WHERE id=$id;";
+    $resultP = mysqli_query($cn, $sqlP);
+    $rowP = mysqli_fetch_array($resultP);
+    $photoP = $rowP["photo"];
+    $img = "userData/user_" . $id . "/" . $photoP;
+
     ?>
 </head>
 
@@ -32,7 +43,7 @@
                 
                 
                 <div class="profile-grid">
-                    <img src="<?php echo $img ?>" class="profile-photo" alt="Photo de profil">
+                    <img src="<?php echo $imgP ?>" class="profile-photo" alt="Photo de profil">
                     <div class="profile-info">
                         <p><strong>Nom:</strong> <?php echo $row['nom']; ?></p>
                         <p><strong>Prénom:</strong> <?php echo $row['prenom']; ?></p>
