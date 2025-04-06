@@ -47,5 +47,8 @@
             </div>
         </div>
     </div>
+    <!-- Inclusion  de messagerie -->
+    <?php include("messageBox.html"); ?>
+
 </body>
 </html>

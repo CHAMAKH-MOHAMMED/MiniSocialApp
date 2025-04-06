@@ -20,11 +20,12 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 $friend_id = $_GET['id'];
 
 // Vérifier si les deux utilisateurs sont amis
-$sql = "SELECT utilisateur.nom, utilisateur.prenom 
-    FROM amie 
-    JOIN utilisateur ON amie.id_utilisateur = utilisateur.id
-    WHERE amie.id_utilisateur = $friend_id AND amie.id_amie = $session_id 
-       OR amie.id_utilisateur = $session_id AND amie.id_amie = $friend_id";
+    $sql = "SELECT u.nom, u.prenom 
+    FROM amie a
+    JOIN utilisateur u ON (a.id_utilisateur = u.id AND a.id_amie = $session_id) 
+    OR (a.id_amie = u.id AND a.id_utilisateur = $session_id)
+    WHERE (a.id_utilisateur = $friend_id OR a.id_amie = $friend_id) AND a.etat = 'accepter'";
+
 $result = mysqli_query($cn, $sql);
 
 if (mysqli_num_rows($result) == 0) {

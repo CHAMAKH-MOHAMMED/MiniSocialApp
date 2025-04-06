@@ -201,7 +201,7 @@
                     <?php
                     if (isset($_GET['search']) && !empty($_GET['search'])) {
                         $search = mysqli_real_escape_string($cn, $_GET['search']);
-                        $query = "SELECT * FROM utilisateur WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%'";
+                        $query = "SELECT * FROM utilisateur WHERE (nom LIKE '%$search%' OR prenom LIKE '%$search%') AND id != $id";
                         $result = mysqli_query($cn, $query);
                         
                         if (mysqli_num_rows($result) > 0) {
@@ -228,5 +228,8 @@
             </div>
         </div>
     </div>
+    <!-- Inclusion  de messagerie -->
+    <?php include("messageBox.html"); ?>
+
 </body>
 </html>

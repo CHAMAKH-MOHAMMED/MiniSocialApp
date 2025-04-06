@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "devsense.phptools-vscode",
-        "github.copilot"
+        "github.copilot-chat"
     ]
 }

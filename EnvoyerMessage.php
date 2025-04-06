@@ -3,7 +3,7 @@ session_start();
 include("connexion.php");
 
 if(isset($_SESSION['id']) && isset($_GET['message'])) {
-    // Protection basique contre les injections SQL
+    
     $expediteur_id = $_SESSION['id'];
     
     $destinataire_id = $_GET['friend_id'];

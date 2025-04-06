@@ -27,10 +27,10 @@ session_start();
             
             switch ( $_SESSION['role']) {
                 case'professeur':
-                    header(header: "Location:professeur.php");
+                    header("Location: posts.php");
                     exit();
                 case'Etudiant':
-                    header("Location:etudiant.php");
+                    header("Location: posts.php");
                     exit();
                 case'adm':
                     header("Location:admin.php");

@@ -13,7 +13,7 @@ $idUser = $_SESSION['id'];
 $query = "SELECT u.id, u.nom, u.prenom, u.photo, u.etat 
           FROM utilisateur u 
           INNER JOIN amie a ON (u.id = a.id_utilisateur OR u.id = a.id_amie)
-          WHERE (a.id_utilisateur = $idUser OR a.id_amie = $idUser) AND u.id <> $idUser";
+          WHERE (a.id_utilisateur = $idUser OR a.id_amie = $idUser) AND u.id <> $idUser   AND a.etat = 'accepter'";
 
 $result = mysqli_query($cn, $query);
 
