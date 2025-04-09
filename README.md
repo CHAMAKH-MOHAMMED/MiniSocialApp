@@ -34,7 +34,3 @@ AJAX	Communication asynchrone
 HTML5 & CSS3	Structure et design
 JavaScript (Vanilla)	Dynamique côté client
 
-
-📁 Contenu du dépôt
-GestionLocation/ : Dossier principal contenant l'intégralité du code source de l'application.
-bts.sql : Script SQL contenant la structure de la base de données utilisée.
